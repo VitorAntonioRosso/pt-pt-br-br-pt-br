@@ -1,0 +1,402 @@
+OS SETE — O JOGO
+PROMPT ÚNICO DE CRIAÇÃO DO ATO 1 — A DESCOBERTA
+============================================================
+
+COMO USAR
+---------
+
+Este é o prompt canônico para criar, revisar ou reconstruir o Ato 1 do jogo. Ele deve ser usado junto do arquivo:
+
+ARQUIVOS_ATO_1_OUTRAS_FERRAMENTAS.txt
+
+Esse segundo arquivo lista os assets e arquivos que precisam ser produzidos em geradores de imagem, editor de pixel art, editor de mapas, ferramentas de áudio e no próprio Godot.
+
+Não entregue somente um plano, um GDD ou pseudocódigo. Entregue arquivos reais, execute o projeto e relate honestamente o que foi testado.
+
+
+============================================================
+1. MISSÃO
+============================================================
+
+Crie um projeto Godot 4.x, 2D puro, jogável e executável de ponta a ponta, implementando somente o Ato 1 — A Descoberta, baseado nos capítulos 1 a 4 do livro de referência e nas notas de adaptação do projeto.
+
+Fluxo obrigatório:
+
+1.1 Abertura HQ
+-> 1.2 Lancha
+-> 1.3 Fenda e casco
+-> 1.4 Porão da caravela
+-> 1.5 Salvamento do navio
+-> 1.6 Chegada ao galpão-laboratório
+-> 1.7 Investigação com Eliana
+-> 1.8 O corte
+-> 1.9 Sangue em Inverno
+-> tela final: "Capítulo 2 — O Despertar."
+
+O Ato 2 não deve ser implementado neste bloco. Deixe uma transição clara para que um futuro PROMPT_UNICO_CRIACAO_ATO_2.txt possa ser adicionado sem reescrever o Ato 1.
+
+
+============================================================
+2. HIERARQUIA DAS FONTES E LIMITES
+============================================================
+
+Use as fontes nesta ordem:
+
+1. A solicitação do usuário define o que precisa ser entregue.
+2. O PDF enviado é a autoridade para fatos narrativos quando houver divergência.
+3. As notas unificadas definem estrutura de fases, mecânicas, câmeras e pipeline.
+4. O prompt original define restrições técnicas, qualidade mínima e checklist.
+5. A implementação existente no repositório mostra o que já foi produzido e deve ser preservado, corrigido ou ampliado.
+
+Os anexos são referências e instruções de produção. Não copie trechos longos do romance para diálogos ou arquivos do jogo. Resuma os acontecimentos em linguagem própria, use falas curtas e crie assets autorais. O projeto é uma homenagem não comercial; não use capas, logos, sprites, músicas, imagens ou trechos protegidos sem autorização.
+
+
+============================================================
+3. RESTRIÇÕES INEGOCIÁVEIS
+============================================================
+
+1. Engine: Godot 4.x; linguagem GDScript.
+2. O jogo é 2D puro. Não use nós 3D, câmera 3D ou profundidade falsa em 3D.
+3. O Ato 1 não possui combate nem inimigos. Não criar ataques, barra de vida, perseguição ou IA hostil.
+4. A lancha usa vista de cima.
+5. O mergulho usa vista lateral, com atmosfera inspirada em exploração subaquática.
+6. O laboratório usa top-down 3/4, Y-sort e câmera 2D.
+7. O medo deve vir de silêncio, água escura, oxigênio, corrente, rangido, cardume, metal e frio.
+8. A caixa é encontrada e marcada, mas não é içada pelo jogador.
+9. No primeiro içamento a caravela cede e a caixa cai de volta. A recuperação ocorre na cutscene 1.5.
+10. O susto do porão é contextual: rangido amplificado e cardume de espadinhas, sem monstro.
+11. A caixa contém sete corpos. Inverno é o corpo mais íntegro e se distingue pelo nariz que começa a se formar.
+12. Eliana se corta quando é empurrada contra a lâmina da serra elétrica. O gatilho deve ser uma Area2D na lâmina, com nome identificável, como SawBladeTrigger_Area2D.
+13. O frio do laboratório surge sem ar-condicionado ligado. O aparelho havia sido retirado; aquecedores aparecem como ambientação e pontos de calor.
+14. Todo asset de runtime deve existir localmente. Nenhuma URL externa pode ser necessária para jogar.
+15. Código deve ter cabeçalho e comentários em português nos trechos não óbvios.
+16. Não esconda placeholders. Registre o que for provisório em docs/ASSET_STATUS.md.
+
+
+============================================================
+4. TOM, DIREÇÃO E IDENTIDADE
+============================================================
+
+Gênero: aventura narrativa, mistério, terror e investigação.
+
+Sensação: mar frio, silêncio, isolamento, madeira podre, tecnologia improvisada, curiosidade científica e uma ameaça que quase nunca aparece.
+
+Paletas:
+
+- Praia e amanhecer: cinza nublado, areia fria, azul lavado e laranja pálido no horizonte.
+- Lancha: azul-petróleo, espuma fria e madeira desbotada.
+- Fenda e caravela: azul quase preto, verde-musgo, ferrugem, algas e feixe branco-azulado de lanterna.
+- Porão: madeira escura, musgo, prata opaca e pontos de bronze.
+- Galpão: cinza industrial, plástico prateado, azul-gelo, luz de emergência e aquecedores laranja.
+- HQ: bordas pretas, composição de mangá/HQ, vinhetas, balões e transições por painel.
+
+A pixel art deve ser autoral, consistente, com filtro nearest e escala de pixels uniforme. A arte não deve ser substituída por retângulos, emojis, texto ou formas desenhadas em runtime.
+
+
+============================================================
+5. HISTÓRIA OPERACIONAL DO ATO 1
+============================================================
+
+Em Amarração, Tiago, César e Olavo mantêm em segredo uma caravela portuguesa afundada que outros consideram apenas madeira podre. Tiago suspeita que o navio é muito mais antigo e importante. Eles alugam equipamento de filmagem submarina com Peta e voltam à fenda.
+
+No mergulho, encontram o casco inclinado, escotilhas, alçapões e portinholas de canhão selados com correntes e madeiras pregadas. No interior, encontram moedas, imagens religiosas e uma caixa metálica de aproximadamente 800 kg, lacrada e com a palavra INVERNO em relevo. A caixa é marcada, não içada pelo jogador.
+
+A USPA financia o resgate da caravela com balões e cabos. Quando o casco cede na proa, a caixa cai de volta à fenda. No dia seguinte, a USPA recupera a caixa separadamente e a leva ao galpão-laboratório das docas.
+
+No galpão, a caixa é lavada e revela sete nomes: Lobo, Tempestade, Inverno, Gentil, Espelho, Acordador e Sétimo. Delvechio autoriza a abertura com serras elétricas. A placa frontal é removida; há sete corpos ressecados sem olhos. A multidão empurra Eliana contra a lâmina. Ela se corta, sangra e se apoia na caixa; o sangue escorre para dentro.
+
+O frio cresce sem explicação. Inverno é o corpo mais íntegro; o nariz começa a se formar. Uma gota cai, o silêncio se instala e um dedo se move. O Ato termina antes do despertar completo.
+
+
+============================================================
+6. FASES E IMPLEMENTAÇÃO
+============================================================
+
+FASE 1.1 — ABERTURA HQ
+-----------------------
+
+Tipo: cutscene.
+Câmera: quadros HQ independentes da câmera do jogo.
+
+Quadros mínimos:
+
+1. Mar calmo ao amanhecer em Amarração.
+2. Tiago, César e Olavo na lancha.
+3. O fundo do mar escuro.
+4. A silhueta da caravela na fenda.
+5. Tela escura: "Mergulho iniciado."
+
+Use avanço manual por E, Enter, Espaço ou clique. Não force timer de leitura.
+
+FASE 1.2 — LANCHA
+------------------
+
+Tipo: jogável.
+Câmera: vista de cima.
+Personagem: Tiago conduzindo a lancha de seis metros.
+
+Implementar:
+
+- Mar calmo e espaço navegável.
+- Movimento com WASD/setas, aceleração leve e limite do mapa.
+- Boia/ponto de mergulho visível, porém integrado à cena.
+- Mensagens curtas sobre Peta, equipamento de filmagem, tesouros anteriores e a hipótese de a embarcação ser portuguesa.
+- O objetivo só completa quando o jogador chega à boia e confirma a âncora com E.
+
+FASE 1.3 — FENDA E CASCO
+-------------------------
+
+Tipo: jogável.
+Câmera: lateral.
+Personagem: Tiago mergulhando.
+
+Implementar:
+
+- Oxigênio decrescente com barra, porcentagem, tempo aproximado e alertas em 50%, 25% e 10%.
+- Quando o oxigênio acaba, retornar ao último ponto seguro sem punição pesada.
+- Lanterna direcional de alcance limitado usando PointLight2D e textura de cone local.
+- Corrente marinha em uma zona visível que empurra o jogador contra o paredão.
+- Casco da caravela quase encaixado na fenda, inclinado levemente.
+- Três pontos fotografáveis: casco sem arranhões, escotilhas lacradas e portinhola de canhão.
+- Interação de câmera que registra 3/3 pontos.
+- Tartaruga ou fauna ambiental como respiro, nunca como inimigo.
+- Entrada estreita entre o paredão e o casco, com um buraco acima.
+- Só liberar a entrada quando as três fotografias forem concluídas.
+
+FASE 1.4 — PORÃO DA CARAVELA
+-----------------------------
+
+Tipo: jogável.
+Câmera: lateral.
+
+Implementar:
+
+- Madeira, algas, musgo, moedas e pouca visibilidade.
+- Rangido grande e reverberado do casco, sem jumpscare gratuito.
+- Cardume de espadinhas atravessando o porão como susto contextual.
+- Coleta de um item: moedas ou imagem de santo. A escolha deve ser documentada.
+- Caixa prateada de 800 kg cercada por moedas e imagens.
+- Primeira leitura ambígua: INFERNO?; após inspeção: INVERNO.
+- Texto ou interação que mostre a caixa oca e lacrada.
+- Marcação da caixa com cabo-guia.
+- Retorno à passagem de saída.
+- A caixa não pode ser içada pelo jogador nesta fase.
+
+FASE 1.5 — SALVAMENTO DO NAVIO
+-------------------------------
+
+Tipo: cutscene HQ.
+
+Mostrar:
+
+1. USPA, balões laranja e cabos sustentando a caravela.
+2. Casco subindo da fenda.
+3. Proa cedendo e caixa soltando.
+4. Caixa caindo de volta ao fundo.
+5. Recuperação da caixa no dia seguinte por cabo de aço e balão menor.
+6. Caravela chegando às docas sob névoa.
+
+FASE 1.6 — GALPÃO-LABORATÓRIO
+------------------------------
+
+Tipo: cutscene HQ.
+
+Mostrar:
+
+- Galpão das docas transformado em laboratório.
+- Plástico prateado, salas de vidro, equipamentos e soldados na entrada.
+- Caixa sendo lavada e documentada.
+- Símbolos, sol de raios curvos, aviso e os sete nomes.
+- Eliana percebendo que há algo errado.
+
+FASE 1.7 — INVESTIGAÇÃO COM ELIANA
+-----------------------------------
+
+Tipo: jogável.
+Câmera: top-down 3/4 com Y-sort.
+Personagem: Eliana.
+
+Parte A — limpeza e registro:
+
+- Remover mariscos e algas.
+- Usar mangueira/escova para revelar a prata.
+- Ler individualmente: Lobo, Tempestade, Inverno, Gentil, Espelho, Acordador e Sétimo.
+- Registrar símbolos, sol de raios curvos e aviso de não abertura.
+- Conversar com Delvechio sobre a interpretação histórica.
+- Mostrar que Eliana possui sensibilidade a sangue.
+
+Parte B — abertura:
+
+- Delvechio autoriza serras elétricas.
+- A placa frontal é retirada.
+- A caixa revela sete corpos ressecados e sem olhos.
+- A multidão se amontoa.
+- Criar Area2D real para a lâmina, com CollisionShape2D e nome identificável.
+- O jogador pode se aproximar da serra, mas não pode evitar o acidente.
+- Ao entrar na Area2D com os registros completos, disparar 1.8.
+
+FASE 1.8 — O CORTE
+-------------------
+
+Tipo: cutscene HQ.
+
+Mostrar metal raspando, grito curto, mão direita cortada, sangue no avental e Eliana apoiada na borda da caixa. O fio de sangue entra na caixa. Não transformar o corte em escolha evitável.
+
+FASE 1.9 — SANGUE EM INVERNO
+----------------------------
+
+Tipo: cutscene HQ e encerramento.
+
+Mostrar:
+
+1. Sete corpos.
+2. Inverno mais íntegro que os demais.
+3. Nariz se formando.
+4. Gota de sangue descendo.
+5. Silêncio total quando toca o corpo.
+6. Dedo se movendo.
+7. Tela preta: "Capítulo 2 — O Despertar."
+
+
+============================================================
+7. SISTEMAS TÉCNICOS
+============================================================
+
+Estrutura mínima:
+
+project.godot
+scenes/boot.tscn
+scenes/acto1/          uma cena por fase
+scripts/core/           estado, save e base da fase
+scripts/phases/         mecânica de cada fase
+scripts/ui/             menu e HQ
+assets/source/          fontes editáveis
+assets/generated/       PNGs locais de runtime
+audio/                  WAV/OGG e bus layout
+docs/                   decisões, tarefas, status e créditos
+tools/                  geração e smoke tests
+
+Controles:
+
+- WASD/setas: mover, nadar e conduzir.
+- E/Enter/Espaço/clique: confirmar, avançar, fotografar e interagir.
+- Esc: pausar e retomar.
+
+Save:
+
+- Salvar em user://, nunca no repositório.
+- Guardar fase, fotografias, item, caixa marcada, inscrições e configurações.
+- Continuar deve funcionar quando o save existe e retornar ao menu quando não existe.
+
+UI:
+
+- Menu: Novo jogo, Continuar, Configurações e Créditos.
+- HUD de mergulho: oxigênio, tempo, lanterna e 3 fotografias.
+- HUD de investigação: objetivo e interação.
+- Caixa de mensagem sem timer obrigatório de leitura.
+- Pausa com continuar e voltar ao menu.
+- Redução de tremor/flashes ou movimento reduzido registrada nas configurações.
+
+Áudio:
+
+- Respiração e bolhas no mergulho.
+- Avisos de oxigênio em três níveis.
+- Rangido do casco.
+- Cardume e água.
+- Âncora e clique da câmera.
+- Metal raspando e serra.
+- Gota de sangue e silêncio total depois dela.
+- Ambiente frio do laboratório.
+
+
+============================================================
+8. ARQUIVOS QUE DEVEM SER ENTREGUES
+============================================================
+
+No repositório:
+
+- project.godot
+- README.md
+- ASSET_CREDITS.md
+- docs/AT0_LEITURA_E_DECISOES.md
+- docs/ASSET_STATUS.md
+- docs/tarefas.md
+- scenes/acto1/*.tscn
+- scripts/core/*.gd
+- scripts/phases/*.gd
+- scripts/ui/*.gd
+- assets/source/*.svg ou fontes equivalentes
+- assets/generated/*.png
+- audio/*
+- tools/generate_assets.sh
+- tools/smoke_test.gd
+
+O arquivo ARQUIVOS_ATO_1_OUTRAS_FERRAMENTAS.txt deve ser usado para produzir os assets externos antes da integração.
+
+
+============================================================
+9. CRITÉRIOS DE ACEITAÇÃO
+============================================================
+
+Técnica:
+
+[ ] O projeto abre no Godot 4 sem erro de carregamento.
+[ ] A cena inicial abre o menu.
+[ ] Novo jogo começa em 1.1.
+[ ] Continuar recupera o save.
+[ ] Pausa funciona.
+[ ] O projeto é 2D puro.
+[ ] Nenhuma cena referencia arquivo inexistente.
+[ ] Os scripts têm explicação em português.
+
+Ato 1:
+
+[ ] O fluxo 1.1–1.9 está conectado.
+[ ] Não existe combate ou inimigo.
+[ ] A lancha chega à boia e confirma a âncora.
+[ ] O mergulho tem oxigênio e lanterna.
+[ ] A corrente desloca o jogador.
+[ ] Os três pontos são fotografáveis.
+[ ] A entrada fica bloqueada até as três fotos.
+[ ] O cardume é o susto contextual.
+[ ] Um item é coletado.
+[ ] A caixa alterna INFERNO? para INVERNO.
+[ ] A caixa é marcada e não içada pelo jogador.
+[ ] A cutscene mostra a caixa caindo e sendo recuperada depois.
+[ ] As sete inscrições são registráveis.
+[ ] A serra tem Area2D real.
+[ ] O corte é inevitável depois do registro.
+[ ] Aparecem sete corpos e o nariz de Inverno.
+[ ] O ato termina com a tela do Capítulo 2.
+
+Arte e produção:
+
+[ ] Assets de runtime são locais e documentados.
+[ ] PNGs usam filtro nearest e escala consistente.
+[ ] Existem fundos, personagens, objetos, HQ, UI e efeitos necessários.
+[ ] Limitações de áudio, animação e polimento estão registradas.
+
+Validação:
+
+Execute o projeto interativamente quando possível. Execute também a validação headless e o smoke test. Não diga que o Ato foi jogado de ponta a ponta se apenas o carregamento das cenas foi testado. Informe separadamente: importação, smoke test, playthrough manual e exportação.
+
+
+============================================================
+10. FORMATO DO RELATÓRIO FINAL
+============================================================
+
+Informe:
+
+- arquivos criados ou alterados;
+- fluxo implementado;
+- fatos do PDF aplicados;
+- assets produzidos e ferramentas usadas;
+- comandos de validação executados;
+- testes que passaram;
+- testes não executados;
+- limitações reais;
+- próximos arquivos do Ato 2.
+
+Não declare Atos 2–4 como prontos neste prompt.
+
+FIM DO PROMPT ÚNICO DO ATO 1.

@@ -1,0 +1,375 @@
+OS SETE — A DESCOBERTA
+ARQUIVOS E ASSETS A PRODUZIR EM OUTRAS FERRAMENTAS
+============================================================
+
+OBJETIVO
+--------
+
+Este arquivo é a ordem de produção externa do Ato 1. Use-o junto do PROMPT_UNICO_CRIACAO_ATO_1.txt.
+
+Cada item deve receber um nome previsível, formato final, ferramenta responsável, origem/licença e status. Nenhum arquivo externo pode ser usado por URL no jogo. Depois de produzido, copie o arquivo para a pasta indicada no repositório e valide no Godot.
+
+Ordem recomendada:
+
+1. Gerar arte-base.
+2. Ajustar pixel art, recorte, pivô, paleta e animação.
+3. Montar mapas.
+4. Produzir efeitos sonoros e ambientes.
+5. Integrar no Godot.
+6. Rodar smoke test e playthrough manual.
+
+
+============================================================
+1. GERADOR DE IMAGEM OU ARTE CONCEITUAL
+============================================================
+
+Ferramentas possíveis: gerador de imagem disponível, Gemini ou ferramenta equivalente. O resultado deve ser autoral, sem logos, sem texto ilegível e sem copiar capas ou ilustrações do livro.
+
+Configuração geral:
+
+- Pixel art 2D moderna.
+- Contorno escuro forte.
+- Paleta limitada por cenário.
+- Sem blur, sem aparência 3D e sem perspectiva fotográfica.
+- Fundo transparente para personagens e objetos.
+- Fundo completo para cenários e HQ.
+- Criar em resolução maior somente se o arquivo final puder ser reduzido com pixelização consistente.
+- Exportar PNG RGBA.
+
+1.1 FUNDOS DE JOGO — 1152 x 648 PNG
+-----------------------------------
+
+Arquivo: assets/generated/boat_map.png
+Descrição: mar aberto em vista de cima, ondas frias, boia, espuma e área livre para a lancha de seis metros.
+Paleta: azul-petróleo, azul-marinho, espuma azul-cinza, madeira desbotada.
+
+Arquivo: assets/generated/dive_exterior.png
+Descrição: fenda submarina em vista lateral, paredão rochoso, casco de caravela portuguesa encaixado, algas, sedimento e visibilidade baixa.
+Paleta: quase preto, azul-petróleo, verde-musgo, ferrugem e luz azul-branca.
+
+Arquivo: assets/generated/dive_interior.png
+Descrição: porão lateral da caravela, madeira podre, vigas, musgo, moedas, altar submarino e espaço para a caixa de prata.
+Paleta: preto azulado, marrom escuro, verde-musgo, bronze e prata opaca.
+
+Arquivo: assets/generated/lab_map.png
+Descrição: galpão-laboratório em top-down 3/4, plástico prateado, salas de vidro, bancadas, computadores, cinco aquecedores, mangueiras, caixa central e serra isolada.
+Paleta: cinza industrial, azul-gelo, prata, laranja de aquecedores e vermelho de emergência.
+
+Arquivo: assets/generated/menu_bg.png
+Descrição: praia de Amarração ao amanhecer, mar vazio, horizonte nublado e uma silhueta de lancha.
+
+1.2 PERSONAGENS — PNG RGBA
+---------------------------
+
+Arquivo: assets/generated/tiago_dive.png
+Uso: sprite lateral de mergulho.
+Descrição: jovem mergulhador atlético, roupa preta/cinza, cilindro e equipamento desgastado.
+
+Arquivo: assets/generated/tiago_topdown_sheet.png
+Uso: sprite sheet 3/4, quatro direções, idle e caminhada para cenas em terra.
+Grade sugerida: células 48 x 64 ou 64 x 64, pivô nos pés.
+
+Arquivo: assets/generated/cesar_topdown_sheet.png
+Uso: César em 3/4 e presença de apoio na lancha/mergulho.
+Descrição: homem robusto, jaqueta pesada e cabelo despenteado pela maresia.
+
+Arquivo: assets/generated/olavo_topdown_sheet.png
+Uso: Olavo em 3/4 para a abertura e futuros blocos.
+Descrição: trabalhador comum, roupas civis; o jaleco completo pode ser reservado ao Ato 2.
+
+Arquivo: assets/generated/eliana.png
+Uso: sprite 3/4, quatro direções, idle, caminhada e interação.
+Descrição: historiadora jovem, avental/jaleco, cabelo arrumado, mão direita marcada após o corte.
+
+Arquivo: assets/generated/delvechio.png
+Descrição: professor maduro, óculos redondos, blazer, cadernos.
+
+Arquivo: assets/generated/sergio_diaz.png
+Descrição: biólogo com jaleco, luvas e crachá.
+
+Arquivo: assets/generated/matias.png
+Descrição: assistente de laboratório com caixas de aquecedores.
+
+Arquivos: assets/generated/soldier_01.png até soldier_04.png
+Descrição: soldados diferentes, sem logos reais, com equipamento genérico de contenção.
+
+Arquivos: assets/generated/researcher_01.png até researcher_06.png
+Descrição: pesquisadores distintos, jalecos, câmeras e roupas de frio.
+
+1.3 OBJETOS E FAUNA — PNG RGBA
+-------------------------------
+
+Arquivo: assets/generated/boat.png
+Descrição: lancha de pesca de seis metros em vista superior, motor, banco e espuma.
+
+Arquivo: assets/generated/silver_box_closed.png
+Descrição: caixa de prata fechada, dimensões visuais de geladeira, relevo INVERNO, símbolos laterais, sol de raios curvos e base com aviso.
+
+Arquivo: assets/generated/silver_box_open.png
+Descrição: caixa aberta com sete corpos ressecados sem olhos; Inverno deve ser distinguível por um nariz que se forma.
+
+Arquivo: assets/generated/coins_bronze.png
+Descrição: moedas portuguesas antigas em pequenos grupos.
+
+Arquivo: assets/generated/saint_image.png
+Descrição: imagem religiosa antiga, item pesado que pode ser coletado.
+
+Arquivo: assets/generated/turtle.png
+Descrição: tartaruga grande, fauna ambiental, nunca hostil.
+
+Arquivo: assets/generated/school_fish.png
+Descrição: cardume de espadinhas em faixa animável, usado no susto contextual da fase 1.4.
+
+Arquivo: assets/generated/lantern.png
+Descrição: textura de cone de lanterna subaquática para PointLight2D e efeito visual local.
+
+Arquivo: assets/generated/anchor.png
+Descrição: âncora e cabo usados na confirmação da fase 1.2.
+
+Arquivo: assets/generated/camera.png
+Descrição: ícone de câmera fotográfica submarina do Peta.
+
+Arquivo: assets/generated/interaction_marker.png
+Descrição: marcador discreto de interação, sem aparência de botão genérico.
+
+1.4 QUADROS HQ DO ATO 1 — PNG 1152 x 648
+------------------------------------------
+
+Criar um arquivo visual por tela do roteiro. Todos devem ter borda preta e espaço seguro para o texto do jogo.
+
+Cutscene 1.1 — cinco arquivos:
+- assets/generated/hq_1_1_01_beach_dawn.png
+- assets/generated/hq_1_1_02_boat_friends.png
+- assets/generated/hq_1_1_03_dark_sea.png
+- assets/generated/hq_1_1_04_ship_fissure.png
+- assets/generated/hq_1_1_05_dive_started.png
+
+Cutscene 1.5 — três arquivos:
+- assets/generated/hq_1_5_01_lift_balloons.png
+- assets/generated/hq_1_5_02_box_falls.png
+- assets/generated/hq_1_5_03_docks_fog.png
+
+Cutscene 1.6 — quatro arquivos:
+- assets/generated/hq_1_6_01_lab_shed.png
+- assets/generated/hq_1_6_02_box_cleaning.png
+- assets/generated/hq_1_6_03_eliana_box.png
+- assets/generated/hq_1_6_04_analysis_begins.png
+
+Cutscene 1.8 — quatro arquivos:
+- assets/generated/hq_1_8_01_saw_metal.png
+- assets/generated/hq_1_8_02_short_scream.png
+- assets/generated/hq_1_8_03_cut_hand.png
+- assets/generated/hq_1_8_04_blood_box.png
+
+Cutscene 1.9 — cinco arquivos:
+- assets/generated/hq_1_9_01_seven_bodies.png
+- assets/generated/hq_1_9_02_inverno_nose.png
+- assets/generated/hq_1_9_03_blood_drop.png
+- assets/generated/hq_1_9_04_finger_move.png
+- assets/generated/hq_1_9_05_chapter_two.png
+
+Texto, balões e narração devem ser adicionados no Godot para permitir revisão sem regenerar as imagens.
+
+
+============================================================
+2. LIBRESPRITE OU ASEPRITE
+============================================================
+
+Objetivo: converter a arte-base em assets consistentes de jogo.
+
+Arquivos de trabalho:
+
+- assets/source/*.aseprite ou *.ora para edição.
+- assets/generated/*.png para runtime.
+- docs/sprites.md com grade, pivô e ordem das animações.
+
+Regras:
+
+- Usar a mesma escala de pixel para personagens, objetos e cenários.
+- Aplicar filtro nearest.
+- Remover fundo apenas quando o asset for transparente.
+- Corrigir contorno e pixels soltos.
+- Manter pivô perto dos pés nos sprites top-down.
+- Separar idle, caminhada, nado e interação em linhas ou arquivos documentados.
+- Exportar PNG RGBA sem suavização.
+
+Animações mínimas:
+
+- Tiago: nado parado e nado em quatro direções, se possível.
+- Eliana: idle, caminhada e interação.
+- Cardume: três a seis frames cruzando a tela.
+- Lancha: dois a quatro frames de balanço/espuma.
+- Lanterna: textura estática já é suficiente no primeiro corte.
+
+
+============================================================
+3. LDTK, TILED OU EDITOR EQUIVALENTE
+============================================================
+
+Objetivo: montar mapas com camadas separadas e exportar dados que o Godot possa importar.
+
+Arquivos sugeridos:
+
+- maps/boat_1_2.ldtk ou maps/boat_1_2.tmx
+- maps/dive_1_3.ldtk ou maps/dive_1_3.tmx
+- maps/dive_1_4.ldtk ou maps/dive_1_4.tmx
+- maps/lab_1_7.ldtk ou maps/lab_1_7.tmx
+
+Camadas obrigatórias:
+
+- Ground: água, piso ou madeira.
+- Objects: casco, rocha, caixa, bancadas, aquecedores e props.
+- Collision: parede, rocha, serra, borda do mapa e zonas de corrente.
+- Interactions: fotos, entrada, relíquia, caixa, inscrições e saída.
+
+Entidades:
+
+- BoatAnchorPoint.
+- PhotoPoint_Hull.
+- PhotoPoint_SealedHatches.
+- PhotoPoint_CannonPort.
+- DiveEntry.
+- RelicPickup.
+- SilverBox.
+- Inscription_Lobo, Inscription_Tempestade, Inscription_Inverno, Inscription_Gentil, Inscription_Espelho, Inscription_Acordador e Inscription_Sétimo.
+- SawBladeTrigger_Area2D.
+
+Não usar o mapa para inserir combate ou inimigos no Ato 1.
+
+
+============================================================
+4. BFXR, SFXR, AUDACITY OU FERRAMENTA DE ÁUDIO
+============================================================
+
+Objetivo: produzir áudio original curto, sem música ou gravações protegidas.
+Formato final preferencial: WAV 44.1 kHz, 16-bit, mono para efeitos; OGG ou WAV para ambientes.
+
+Arquivos:
+
+- audio/ambience_menu.ogg — mar distante, quase inaudível.
+- audio/ambience_boat.ogg — motor leve, vento e água.
+- audio/ambience_dive.ogg — água abafada, bolhas e respiração.
+- audio/ambience_lab_cold.ogg — zumbido técnico, metal distante e silêncio.
+- audio/sfx_anchor_drop.wav — cabo e âncora entrando na água.
+- audio/sfx_camera_shutter.wav — clique da câmera do Peta.
+- audio/sfx_bubbles.wav — bolhas curtas do mergulhador.
+- audio/sfx_oxygen_warning_50.wav — aviso grave e discreto.
+- audio/sfx_oxygen_warning_25.wav — aviso mais frequente.
+- audio/sfx_oxygen_warning_10.wav — alerta urgente sem ser ensurdecedor.
+- audio/sfx_wood_creak.wav — rangido longo, grave e reverberado.
+- audio/sfx_fish_pass.wav — cardume passando rapidamente.
+- audio/sfx_metal_hollow.wav — batida oca na caixa.
+- audio/sfx_metal_scrape.wav — metal da serra raspando.
+- audio/sfx_saw_cut.wav — serra elétrica curta.
+- audio/sfx_short_scream.wav — grito curto, sem exagero.
+- audio/sfx_blood_drop.wav — gota ecoando.
+- audio/sfx_silence_marker.wav — arquivo opcional de silêncio para marcar a pausa após a gota.
+
+No Godot, criar buses separados para Master, Ambiente, Efeitos e Música. A opção de volume deve existir mesmo que a música do primeiro corte seja mínima.
+
+
+============================================================
+5. GODOT — ARQUIVOS DE INTEGRAÇÃO
+============================================================
+
+Arquivos que devem ser criados ou ajustados no Godot:
+
+- project.godot — resolução 1152 x 648, renderer compatível, ações de entrada e autoload GameState.
+- scenes/boot.tscn — menu inicial.
+- scenes/acto1/cutscene_1_1.tscn
+- scenes/acto1/boat_1_2.tscn
+- scenes/acto1/dive_1_3.tscn
+- scenes/acto1/dive_1_4.tscn
+- scenes/acto1/cutscene_1_5.tscn
+- scenes/acto1/cutscene_1_6.tscn
+- scenes/acto1/lab_1_7.tscn
+- scenes/acto1/cutscene_1_8.tscn
+- scenes/acto1/cutscene_1_9.tscn
+- scenes/acto1/end_card.tscn
+- scripts/core/game_state.gd — flags, save e troca de fase.
+- scripts/core/base_phase.gd — HUD, pausa, mensagens e recursos comuns.
+- scripts/ui/menu.gd — menu, continue, configurações e créditos.
+- scripts/ui/cutscene_phase.gd — painéis HQ e avanço manual.
+- scripts/phases/boat_1_2.gd
+- scripts/phases/dive_1_3.gd
+- scripts/phases/dive_1_4.gd
+- scripts/phases/lab_1_7.gd
+- scripts/phases/cutscene_1_1.gd, cutscene_1_5.gd, cutscene_1_6.gd, cutscene_1_8.gd e cutscene_1_9.gd.
+- tools/smoke_test.gd — carrega e instancia todas as cenas.
+
+Integração mínima:
+
+1. Importar os assets.
+2. Confirmar que não existem referências quebradas.
+3. Criar a sequência de cenas.
+4. Ligar os sons às interações.
+5. Ajustar colisões e Area2D.
+6. Testar cada fase isolada.
+7. Jogar 1.1 até 1.9.
+8. Rodar smoke test headless.
+
+
+============================================================
+6. DOCUMENTAÇÃO E CONTROLE
+============================================================
+
+Arquivos:
+
+- README.md — como abrir, rodar e controlar.
+- docs/AT0_LEITURA_E_DECISOES.md — fontes e reconciliações.
+- docs/ASSET_STATUS.md — pronto, provisório e fora do escopo.
+- docs/tarefas.md — próximos blocos e polimento.
+- ASSET_CREDITS.md — autoria, licença e ferramenta usada.
+- docs/sprites.md — opcional, mas recomendado para atlas e pivôs.
+
+Para cada asset externo, registrar:
+
+- nome do arquivo;
+- ferramenta;
+- autor ou fonte;
+- licença;
+- modificações realizadas;
+- data/versão do arquivo;
+- cena em que é usado.
+
+
+============================================================
+7. CHECKLIST DE PRODUÇÃO EXTERNA
+============================================================
+
+[ ] Todos os nomes de arquivo estão definidos antes da geração.
+[ ] Todos os PNGs têm alfa quando necessário.
+[ ] Todos os fundos têm resolução final definida.
+[ ] Os personagens têm pivô e grade documentados.
+[ ] Os quadros HQ têm borda preta e área segura para texto.
+[ ] O áudio é autoral e tem volume normalizado.
+[ ] Os mapas têm Ground, Objects, Collision e Interactions separados.
+[ ] A serra tem entidade SawBladeTrigger_Area2D.
+[ ] Não há material protegido não autorizado.
+[ ] Os arquivos foram copiados para o repositório.
+[ ] O Godot abre sem recurso faltante.
+[ ] O smoke test passa.
+[ ] O playthrough manual do Ato 1 foi realizado ou marcado como não executado.
+
+
+8. STATUS DA IMPLEMENTAÇÃO ATUAL
+---------------------------------
+
+O repositório já possui uma primeira vertical slice autoral com:
+
+- cenas e scripts das fases 1.1 a 1.9;
+- fundos e sprites SVG -> PNG;
+- menu, save, pausa e créditos;
+- oxigênio, lanterna, corrente, fotografias, caixa, inscrições e Area2D da serra;
+- smoke test headless.
+
+Ainda podem ser produzidos externamente para uma segunda passagem:
+
+- sprites frame-a-frame e atlas completos;
+- quadros HQ individuais, um por tela;
+- áudio e SFX;
+- mapas LDtk/Tiled separados;
+- mais props e NPCs do laboratório;
+- polimento visual e playthrough manual.
+
+FIM DO ARQUIVO DE PRODUÇÃO EXTERNA.

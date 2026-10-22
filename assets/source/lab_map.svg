@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1152" height="648" viewBox="0 0 320 180">
+<rect width="320" height="180" fill="#17232a"/><rect x="12" y="12" width="296" height="156" fill="#27353b" stroke="#93a2a0" stroke-width="2"/>
+<path d="M20 28 H300 M20 65 H300 M20 103 H300 M20 144 H300" stroke="#65787a" stroke-width="1" opacity=".65"/><path d="M55 18 V158 M112 18 V158 M179 18 V158 M250 18 V158" stroke="#718788" stroke-width="1" opacity=".55"/>
+<rect x="126" y="52" width="100" height="62" fill="#586a6b" stroke="#c5d5cc" stroke-width="2"/><rect x="138" y="62" width="76" height="42" fill="#a5a9a0"/><text x="146" y="85" font-size="9" fill="#26333a" font-family="monospace">7 NOMES</text>
+<path d="M29 25 h25 v18 H29z M259 23 h37 v20 H259z M26 119 h42 v25 H26z" fill="#719092" opacity=".7"/><path d="M74 129 h34 v13 H74z M230 128 h54 v14 H230z" fill="#bf7c62" opacity=".8"/>
+<circle cx="250" cy="71" r="9" fill="#efab6c" opacity=".8"/><circle cx="282" cy="93" r="7" fill="#7db7ba" opacity=".8"/><path d="M287 34 l8 9 -8 9 -8 -9z" fill="#ed6d68"/>
+<g fill="#c5d5cc" opacity=".55"><circle cx="40" cy="85" r="2"/><circle cx="82" cy="50" r="2"/><circle cx="272" cy="57" r="2"/><circle cx="166" cy="140" r="2"/></g>
+</svg>
