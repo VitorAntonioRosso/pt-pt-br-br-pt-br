@@ -18,6 +18,8 @@ Ordem recomendada:
 5. Integrar no Godot.
 6. Rodar smoke test e playthrough manual.
 
+No final do Ato 1, o despertar e as mortes são roteirizados. A produção deve sugerir a matança com sombras, silhuetas, portas, sons e iluminação; não produzir imagens gráficas de violência. Depois, preparar o mapa da fuga curta top-down 3/4, sem combate.
+
 
 ============================================================
 1. GERADOR DE IMAGEM OU ARTE CONCEITUAL
@@ -54,6 +56,10 @@ Paleta: preto azulado, marrom escuro, verde-musgo, bronze e prata opaca.
 Arquivo: assets/generated/lab_map.png
 Descrição: galpão-laboratório em top-down 3/4, plástico prateado, salas de vidro, bancadas, computadores, cinco aquecedores, mangueiras, caixa central e serra isolada.
 Paleta: cinza industrial, azul-gelo, prata, laranja de aquecedores e vermelho de emergência.
+
+Arquivo: assets/generated/lab_escape.png
+Descrição: corredor e área externa imediata do laboratório em top-down 3/4, portas, luzes de emergência, sombras longas e rotas curtas para a fuga de Inverno.
+Paleta: azul-gelo, preto, cinza industrial e vermelho de emergência.
 
 Arquivo: assets/generated/menu_bg.png
 Descrição: praia de Amarração ao amanhecer, mar vazio, horizonte nublado e uma silhueta de lancha.
@@ -132,6 +138,9 @@ Descrição: ícone de câmera fotográfica submarina do Peta.
 Arquivo: assets/generated/interaction_marker.png
 Descrição: marcador discreto de interação, sem aparência de botão genérico.
 
+Arquivo: assets/generated/inverno_silhouette.png
+Descrição: silhueta de Inverno para a sequência roteirizada de despertar e matança, sem violência gráfica.
+
 1.4 QUADROS HQ DO ATO 1 — PNG 1152 x 648
 ------------------------------------------
 
@@ -161,12 +170,15 @@ Cutscene 1.8 — quatro arquivos:
 - assets/generated/hq_1_8_03_cut_hand.png
 - assets/generated/hq_1_8_04_blood_box.png
 
-Cutscene 1.9 — cinco arquivos:
+Cutscene 1.9 — seis arquivos:
 - assets/generated/hq_1_9_01_seven_bodies.png
 - assets/generated/hq_1_9_02_inverno_nose.png
 - assets/generated/hq_1_9_03_blood_drop.png
 - assets/generated/hq_1_9_04_finger_move.png
-- assets/generated/hq_1_9_05_chapter_two.png
+- assets/generated/hq_1_9_05_inverno_wakes.png
+- assets/generated/hq_1_9_06_lab_shadows.png — mortes sugeridas por sombra, porta e silhueta; sem violência explícita
+
+A fuga curta é jogável e usa `assets/generated/lab_escape.png`; não precisa de um quadro HQ para cada passo.
 
 Texto, balões e narração devem ser adicionados no Godot para permitir revisão sem regenerar as imagens.
 
@@ -176,6 +188,8 @@ Texto, balões e narração devem ser adicionados no Godot para permitir revisã
 ============================================================
 
 Objetivo: converter a arte-base em assets consistentes de jogo.
+
+Esta ferramenta não recebe prompts de geração. O Gemini ou outro gerador produz a arte-base; o LibreSprite/Aseprite corrige pixels, recorta, anima e exporta.
 
 Arquivos de trabalho:
 
@@ -207,6 +221,8 @@ Animações mínimas:
 ============================================================
 
 Objetivo: montar mapas com camadas separadas e exportar dados que o Godot possa importar.
+
+LDtk/Tiled não é gerador de imagem por prompt. Use-o para montar o mapa, camadas, entidades e colisões a partir dos assets já preparados.
 
 Arquivos sugeridos:
 
@@ -244,6 +260,8 @@ Não usar o mapa para inserir combate ou inimigos no Ato 1.
 Objetivo: produzir áudio original curto, sem música ou gravações protegidas.
 Formato final preferencial: WAV 44.1 kHz, 16-bit, mono para efeitos; OGG ou WAV para ambientes.
 
+Bfxr/SFXR e Audacity não recebem prompts de imagem. Use os geradores para criar sons curtos e o Audacity para cortar, normalizar e editar os arquivos.
+
 Arquivos:
 
 - audio/ambience_menu.ogg — mar distante, quase inaudível.
@@ -264,6 +282,8 @@ Arquivos:
 - audio/sfx_short_scream.wav — grito curto, sem exagero.
 - audio/sfx_blood_drop.wav — gota ecoando.
 - audio/sfx_silence_marker.wav — arquivo opcional de silêncio para marcar a pausa após a gota.
+- audio/sfx_lab_shadow_impact.wav — impacto abafado para a matança sugerida, sem violência explícita.
+- audio/ambience_escape.ogg — alarme distante, passos e reverberação do laboratório.
 
 No Godot, criar buses separados para Master, Ambiente, Efeitos e Música. A opção de volume deve existir mesmo que a música do primeiro corte seja mínima.
 
@@ -285,6 +305,7 @@ Arquivos que devem ser criados ou ajustados no Godot:
 - scenes/acto1/lab_1_7.tscn
 - scenes/acto1/cutscene_1_8.tscn
 - scenes/acto1/cutscene_1_9.tscn
+- scenes/acto1/escape_1_9.tscn — fuga curta top-down 3/4, sem combate.
 - scenes/acto1/end_card.tscn
 - scripts/core/game_state.gd — flags, save e troca de fase.
 - scripts/core/base_phase.gd — HUD, pausa, mensagens e recursos comuns.
@@ -295,7 +316,10 @@ Arquivos que devem ser criados ou ajustados no Godot:
 - scripts/phases/dive_1_4.gd
 - scripts/phases/lab_1_7.gd
 - scripts/phases/cutscene_1_1.gd, cutscene_1_5.gd, cutscene_1_6.gd, cutscene_1_8.gd e cutscene_1_9.gd.
+- scripts/phases/escape_1_9.gd — movimento e saída da fuga roteirizada.
 - tools/smoke_test.gd — carrega e instancia todas as cenas.
+
+Toda cutscene deve conter um `AnimationPlayer` para sincronizar quadros, transições, sombras, luzes e sons.
 
 Integração mínima:
 
@@ -305,7 +329,7 @@ Integração mínima:
 4. Ligar os sons às interações.
 5. Ajustar colisões e Area2D.
 6. Testar cada fase isolada.
-7. Jogar 1.1 até 1.9.
+7. Jogar 1.1 até a fuga final do Ato 1.
 8. Rodar smoke test headless.
 
 
@@ -350,6 +374,7 @@ Para cada asset externo, registrar:
 [ ] O Godot abre sem recurso faltante.
 [ ] O smoke test passa.
 [ ] O playthrough manual do Ato 1 foi realizado ou marcado como não executado.
+[ ] A fuga top-down 3/4 foi verificada sem combate.
 
 
 8. STATUS DA IMPLEMENTAÇÃO ATUAL
@@ -358,6 +383,7 @@ Para cada asset externo, registrar:
 O repositório já possui uma primeira vertical slice autoral com:
 
 - cenas e scripts das fases 1.1 a 1.9;
+- sequência de despertar/matança sugerida e fuga curta ainda pendentes de integração;
 - fundos e sprites SVG -> PNG;
 - menu, save, pausa e créditos;
 - oxigênio, lanterna, corrente, fotografias, caixa, inscrições e Area2D da serra;

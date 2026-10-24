@@ -1,243 +1,346 @@
-OS SETE — A DESCOBERTA
-ARQUIVO ÚNICO PARA ABRIR NO BLOCO DE NOTAS
+OS SETE — O JOGO
+BLOCO DE NOTAS UNIFICADO — ATO 1
 ============================================================
 
-Este arquivo reúne os documentos textuais do projeto:
-- prompt modular do Ato 1;
-- README do projeto;
-- decisões tomadas a partir das notas e do PDF;
-- tarefas futuras;
-- créditos dos assets;
-- catálogo dos arquivos gráficos gerados.
+Este é o bloco canônico de trabalho do Ato 1. Ele reúne as decisões narrativas,
+de câmera, produção e implementação necessárias para revisar o projeto Godot 4.
+
+Escopo: Ato 1 — A Descoberta.
+Obra de referência: Os Sete, de André Vianco.
+Uso: presente/homenagem não comercial; o jogo não será vendido.
+
+O Ato 5 — cripta — está explicitamente fora do escopo. Não usar esse material
+para preencher lacunas do Ato 1.
 
 
-============================================================
-1. PROMPT ÚNICO — BLOCO DO ATO 1
-============================================================
-
-Função deste arquivo
---------------------
-
-Este é o primeiro bloco modular do prompt geral. Ele pode ser executado sozinho para produzir, testar ou polir somente o Ato 1 — A Descoberta. O Ato 2 deve entrar depois como outro bloco, sem exigir que este texto repita ou reimplemente o Ato 1.
-
-Fontes e hierarquia
--------------------
-
-Use as notas unificadas para estrutura de jogo e o PDF como autoridade factual quando houver divergência. A solicitação do usuário define o entregável. Não copie longos trechos do romance: converta os fatos em cenas, objetivos, falas curtas e mecânicas originais.
-
-Entregável
-----------
-
-Entregue um projeto Godot 4.x 2D executável e jogável de ponta a ponta:
-
-1.1 -> 1.2 -> 1.3 -> 1.4 -> 1.5 -> 1.6 -> 1.7 -> 1.8 -> 1.9 -> "Capítulo 2 — O Despertar."
-
-Inclua cenas reais, scripts GDScript comentados em português, assets locais, menu, save/continue, pausa, créditos, README, estado de assets e tarefas futuras. Rode o projeto e relate somente o que foi verificado.
-
-Restrições fixas do bloco
--------------------------
-
-1. Godot 4.x e GDScript.
-2. 2D puro: sem nós 3D e sem câmera 3D.
-3. Ato 1 sem combate e sem inimigos. Não criar barras de vida, ataques ou perseguição.
-4. Lancha em vista de cima; mergulho em vista lateral; laboratório em top-down 3/4.
-5. A caixa é encontrada e marcada no mergulho. No primeiro içamento ela cai de volta; a recuperação acontece na cutscene 1.5.
-6. O susto é o rangido amplificado e o cardume; não usar jumpscare com monstro.
-7. A caixa mostra sete corpos; Inverno é o mais íntegro, com o nariz se formando antes do dedo se mover.
-8. Eliana se corta na lâmina da serra durante a abertura. O gatilho precisa ser uma Area2D na lâmina.
-9. O frio do laboratório surge sem ar-condicionado ligado; aquecedores são pontos de ambientação.
-10. Todo asset carregado em runtime deve existir localmente e ter origem documentada. Não use hotlink, logo ou material protegido.
-
-Fases e critérios
------------------
-
-1.1 — Abertura HQ
-Apresente praia de Amarração, Tiago, César e Olavo, a caravela e a decisão de mergulhar. Avançar por quadros com E/Enter/clique.
-
-1.2 — Lancha
-Controle top-down, mar calmo, ponto de mergulho e âncora. Diálogos curtos podem aparecer como mensagens. A fase só termina depois que o jogador chega à boia e confirma a âncora.
-
-1.3 — Fenda e casco
-Oxigênio decrescente e HUD com alertas. O jogador fotografa três pontos: casco sem arranhões, escotilhas lacradas e portinhola de canhão. Uma corrente empurra o mergulhador; uma tartaruga ou fauna serve como respiro ambiental. Depois de três fotos, encontre a abertura entre paredão e casco.
-
-1.4 — Porão
-Escuridão, algas, musgo, rangido amplificado e cardume. Recolha uma peça, encontre a caixa prateada de 800 kg, aceite a leitura inicial INFERNO? e revele INVERNO. Marque a caixa com cabo-guia e retorne à abertura. Não faça o jogador içar a caixa nesta fase.
-
-1.5 — Salvamento HQ
-Mostre balões laranja, a proa cedendo, a caixa caindo de volta e a recuperação no dia seguinte pela USPA.
-
-1.6 — Galpão HQ
-Mostre laboratório improvisado nas docas, plástico prateado, cientistas, soldados, caixa limpa e as sete inscrições.
-
-1.7 — Laboratório
-Top-down 3/4. Eliana limpa a caixa, lê Lobo, Tempestade, Inverno, Gentil, Espelho, Acordador, Sétimo e inspeciona o aviso. Ao completar os registros, aproxime-se da serra.
-
-1.8 — Corte HQ
-A multidão empurra Eliana contra a lâmina. O corte é pequeno e sangra muito; o sangue escorre para dentro da caixa.
-
-1.9 — Sangue em Inverno HQ
-O frio cresce sem fonte. Mostre sete corpos, destaque o corpo mais íntegro, o nariz se formando, a gota de sangue, silêncio e um dedo se movendo. Termine com Capítulo 2 — O Despertar.
-
-Qualidade e validação
-----------------------
-
-- Abra no Godot 4 sem erros de carregamento.
-- Faça o fluxo inteiro sem recurso ausente.
-- Verifique que menu, novo jogo, continuar, pausa e save funcionam.
-- Verifique oxigênio, lanterna/visibilidade, corrente, três fotos, entrada, item, inscrição e Area2D da serra.
-- Confirme que não há inimigos nem combate.
-- Registre limitações de arte, áudio e polimento em docs/ASSET_STATUS.md; nunca chame placeholder de asset final.
-
-Regra para blocos seguintes
----------------------------
-
-Quando o Ato 1 estiver verde, acrescente um novo arquivo PROMPT_UNICO_OS_SETE_ATO_2.md com as próprias cenas, mecânicas, assets e critérios. O bloco novo deve reutilizar sistemas estáveis, não reabrir o escopo do Ato 1 e declarar explicitamente o que foi testado.
-
-
-============================================================
-2. README — OS SETE: A DESCOBERTA
+1. FONTES E HIERARQUIA
 ============================================================
 
-Vertical slice jogável do Ato 1, feita em Godot 4.6.3, como homenagem não comercial ao autor André Vianco.
+1. A solicitação mais recente do usuário define o novo final e os requisitos.
+2. O PDF enviado é a autoridade factual quando houver divergência narrativa.
+3. As notas unificadas PT II definem a estrutura de atos, fases, câmeras e
+   pipeline.
+4. O prompt original define restrições de produção e qualidade.
+5. O bloco de notas anterior e a documentação do repositório registram a
+   implementação já existente.
 
-Rodar
------
+Documentos disponíveis usados nesta consolidação:
+- Os Sete André Vianco.md.pdf;
+- os_sete_notas_unificadas PT II.txt;
+- PROMPT_UNICO_OS_SETE.md;
+- bloco de notas anterior do Ato 1.
 
-1. Instale Godot 4.6 ou compatível.
-2. Abra esta pasta no editor.
-3. Execute o projeto (F6 para testar a cena atual ou F5 para o menu).
-
-O projeto também é validado sem interface com:
-
-godot4 --headless --path . --editor --quit
-
-Controles
----------
-
-- WASD ou setas: mover/nadar/conduzir.
-- E, Enter ou Espaço: avançar, fotografar e interagir.
-- Esc: pausa.
-
-Fluxo do Ato 1
---------------
-
-1.1 abertura -> 1.2 lancha -> 1.3 fenda -> 1.4 porão -> 1.5 içamento -> 1.6 laboratório -> 1.7 investigação -> 1.8 corte -> 1.9 Inverno -> Capítulo 2
-
-O Ato 1 não possui combate nem inimigos. O medo vem da água escura, oxigênio, corrente, madeira rangendo, cardume e frio.
-
-Arquitetura
------------
-
-- scenes/acto1/: uma cena por fase.
-- scripts/core/: estado, save e base da HUD.
-- scripts/phases/: mecânica de cada fase.
-- scripts/ui/: menu e sistema de quadros HQ.
-- assets/source/: fontes SVG autorais.
-- assets/generated/: PNGs carregados pelo jogo.
-- docs/: decisões, tarefas e estado dos assets.
-
-Gere novamente os PNGs com bash tools/generate_assets.sh se editar os SVGs.
-
-Nota de escopo
---------------
-
-Esta entrega implementa o Ato 1 inteiro. Os Atos 2–4 não são simulados nem declarados como prontos. O próximo prompt modular está em PROMPT_UNICO_OS_SETE_ATO_1.md.
+Não copiar trechos longos do romance. Transformar fatos em cenas, objetivos,
+falas curtas, mecânicas e assets autorais.
 
 
-============================================================
-3. ATO 1 — LEITURA APLICADA E DECISÕES
+2. VISÃO GERAL E IDENTIDADE
 ============================================================
 
-Hierarquia das fontes
----------------------
+Gênero: aventura narrativa, mistério, terror e investigação.
+Engine: Godot 4.x.
+Formato: 2D puro; não usar nós 3D, câmera 3D ou profundidade falsa em 3D.
+Arte: pixel art 2D moderna, frame a frame, sombria e detalhada.
+Cutscenes: quadros sequenciais em estilo mangá/HQ, com bordas, vinhetas,
+balões/narração e transições.
 
-1. A solicitação do usuário define o entregável: um projeto funcional do Ato 1 e uma versão modular do prompt.
-2. O PDF de referência orienta os fatos narrativos quando diverge das notas.
-3. os_sete_notas_unificadas PT II.txt organiza o jogo em fases, mecânicas e produção.
-4. O prompt anexado transforma isso em critérios técnicos e checklist.
+Referências de clima e direção:
+- Sea of Stars: capítulos, progressão narrativa e pixel art;
+- Subnautica: tensão subaquática por escuridão, oxigênio e ambiente;
+- Zelda: The Minish Cap: referência principal de câmera top-down 3/4;
+- Don’t Starve Together e Cult of the Lamb: clima e composição, convertidos
+  para 2D puro;
+- Project X Zone 2: referência futura para Tactics, fora do Ato 1.
 
-Reconciliações usadas
----------------------
-
-- O jogador encontra e marca a caixa; ela cai no primeiro içamento e só é recuperada na cutscene 1.5.
-- O susto subaquático é um rangido amplificado e um cardume de espadinhas, sem inimigo.
-- A caixa contém sete corpos; Inverno é o mais íntegro e recupera o nariz antes do movimento do dedo.
-- Eliana se corta ao ser empurrada contra a lâmina da serra. A implementação usa uma Area2D chamada SawBladeTrigger_Area2D.
-- O frio do galpão não vem de ar-condicionado: o aparelho foi retirado. Os aquecedores aparecem como parte da ambientação.
-
-Vertical slice implementada
----------------------------
-
-1.1 -> 1.2 -> 1.3 -> 1.4 -> 1.5 -> 1.6 -> 1.7 -> 1.8 -> 1.9 -> Capítulo 2
-
-As fases jogáveis são reais: condução da lancha, fotografia de três pontos, oxigênio, corrente, item do porão, inspeção INFERNO? / INVERNO, limpeza e leitura das sete inscrições e acionamento do corte.
+Decisão de câmera:
+- lancha: vista de cima;
+- mergulho e interior da caravela: vista lateral;
+- laboratório e fuga: top-down 3/4;
+- cutscenes: câmera própria dos quadros HQ, independente da câmera jogável.
 
 
-============================================================
-4. PRÓXIMOS BLOCOS E TAREFAS
+3. ESTRUTURA DOS ATOS E TÍTULO DO CAPÍTULO 2
 ============================================================
 
-Ato 1 — entregue nesta versão
+Ato 1 — A Descoberta: achado da caravela, mergulho, caixa, laboratório,
+despertar de Inverno, matança roteirizada e fuga.
 
-[x] Fluxo completo 1.1–1.9.
-[x] Lancha, mergulho lateral, oxigênio, corrente e saída segura.
-[x] Três fotografias, entrada, cardume contextual e caixa INVERNO.
-[x] Laboratório 3/4, sete inscrições e corte via Area2D.
-[x] Save, continue, pausa, créditos e configuração de movimento reduzido.
+Ato 2 — título de trabalho proposto: A Fuga de Inverno. O conteúdo do Ato 2
+deve ser revisado depois porque o despertar já acontece dentro do Ato 1.
 
-Polimento recomendado
+Ato 3 — A Caçada.
+Ato 4 — O Confronto.
 
-[ ] Trocar o plano sonoro silencioso por SFX autorais de respiração, bolhas, madeira e metal.
-[ ] Animar sprites e cardume em atlas.
-[ ] Testar a progressão com controle e janela redimensionada.
+Título proposto para o próximo capítulo:
 
-Próximo bloco adicionável
+CAPÍTULO 2 — A FUGA DE INVERNO
 
-[ ] Ato 2 — O Despertar: IML, cemitério, nevasca e fuga sem combate para Olavo.
-[ ] Depois: Tactics dos Atos 2–4, cada qual em seu bloco de prompt e sua pasta de cenas.
+É uma proposta de nomenclatura, não uma fase implementada neste bloco.
 
 
-============================================================
-5. CRÉDITOS DOS ASSETS
+4. MAPA DE FASES COM CÂMERA
 ============================================================
 
-Todos os assets desta primeira vertical slice foram desenhados localmente para este projeto, em SVG autoral, e rasterizados para PNG por tools/generate_assets.sh.
+--- ATO 1 — A DESCOBERTA ---
 
-- Autor: projeto Os Sete — A Descoberta.
-- Licença: material original deste repositório; uso restrito ao protótipo/homenagem não comercial.
-- Não foram usados sprites, logos, trilhas ou imagens extraídas do romance ou do PDF.
-- O PDF e os anexos são referências narrativas; não são distribuídos pelo jogo.
+Fase | Tipo | Personagem | Cenário | Câmera | Objetivo
+-----|------|------------|---------|--------|---------
+1.1 | HQ | — | Praia ao amanhecer | Quadros HQ | Apresentar Tiago, César, Olavo e o mistério
+1.2 | Jogável | Tiago | Lancha | Vista de cima | Chegar à boia e confirmar a âncora
+1.3 | Jogável | Tiago | Fenda/casco | Lateral | Fotografar três pontos e localizar a entrada
+1.4 | Jogável | Tiago | Porão da caravela | Lateral | Coletar item, achar e marcar a caixa
+1.5 | HQ | — | Superfície/docas | Quadros HQ | Mostrar içamento, queda da caixa e recuperação posterior
+1.6 | HQ | — | Galpão-laboratório | Quadros HQ | Mostrar chegada, limpeza e análise inicial
+1.7 | Jogável | Eliana | Laboratório | Top-down 3/4 | Limpar a caixa e registrar sete inscrições
+1.8 | HQ | — | Laboratório | Quadros HQ | Mostrar o corte e o sangue entrando na caixa
+1.9 | HQ + fuga | Inverno | Laboratório/saída | HQ; fuga top-down 3/4 | Despertar, matança sugerida e fuga curta
+
+O Ato 1 termina depois da fuga curta. Não termina com “Capítulo 2 — O
+Despertar”.
+
+--- ATO 2 — A FUGA DE INVERNO ---
+
+Fase | Tipo | Câmera definida
+-----|------|----------------
+2.1 | HQ | Quadros HQ; conteúdo deve ser reescrito após o novo final
+2.2 | Jogável, Olavo, IML | Top-down 3/4
+2.3 | Jogável, Olavo, cemitério | Top-down 3/4
+2.4 | HQ, delegacia | Quadros HQ
+2.5 | Jogável, Tiago, estrada/fuga | Top-down 3/4
+2.6 | HQ, casa de Sabrina | Quadros HQ
+
+--- ATO 3 — A CAÇADA ---
+
+Fase | Tipo | Câmera definida
+-----|------|----------------
+3.1 | Jogável, Inverno, docas | Top-down 3/4
+3.2 | Jogável, Inverno, galpão | Top-down 3/4
+3.3 | HQ, Osasco | Quadros HQ
+3.4 | Jogável, Tiago, IML/base | Top-down 3/4
+3.5 | HQ, rodoviária/aeroporto | Quadros HQ
+3.6 | Jogável, Tiago, docas | Top-down 3/4
+
+--- ATO 4 — O CONFRONTO ---
+
+Fase | Tipo | Câmera definida
+-----|------|----------------
+4.1 | Jogável, iceberg | Top-down 3/4
+4.2 | Jogável, iceberg | Top-down 3/4
+4.3 | HQ, iceberg | Quadros HQ
+4.4 | Jogável, lancha/mar | Vista de cima
+4.5 | HQ, casa de Tiago | Quadros HQ
+4.6 | HQ, epílogo | Quadros HQ
 
 
+5. CENÁRIOS E MECÂNICAS
 ============================================================
-6. CATÁLOGO DE ASSETS GERADOS
+
+5.1 Praia e casa de Tiago
+Preparação da expedição, conversas com César e Olavo e equipamentos. A
+apresentação é HQ; se houver exploração futura em terra, usar top-down 3/4.
+
+5.2 Lancha
+Vista de cima, mar, boia, âncora, cabos e espaço navegável. O objetivo só
+termina quando Tiago chega ao ponto de mergulho e confirma a âncora.
+
+5.3 Fenda e caravela
+Vista lateral. Oxigênio limitado, lanterna de alcance reduzido, corrente,
+escombros, casco inclinado, três pontos de fotografia, tartaruga/fauna
+ambiental e entrada estreita.
+
+5.4 Porão
+Vista lateral. Algas, musgo, moedas, imagens, rangido amplificado, cardume de
+espadinhas, caixa de prata de aproximadamente 800 kg, leitura INFERNO? que se
+revela INVERNO e cabo-guia. O jogador não içará a caixa.
+
+5.5 Laboratório
+Top-down 3/4. Câmera acompanha Eliana; usar Y-sort, camadas de chão/objetos,
+colisões e iluminação 2D. Aquecedores são ambientação e pontos de calor; o
+frio não vem de ar-condicionado ligado.
+
+5.6 Fuga
+Top-down 3/4, curta, depois da matança. Não há combate, ataque, barra de vida
+ou inimigos com IA. A câmera, sombras, luzes, portas e sons sugerem o perigo.
+
+Movimentação top-down 3/4: `Camera2D` acompanha o jogador e o Y-sort ordena
+personagens e objetos conforme a posição vertical.
+
+
+6. NOVO FINAL DO ATO 1
 ============================================================
 
-Cada asset abaixo existe em duas versões: fonte editável SVG em assets/source/ e PNG carregado pelo jogo em assets/generated/.
+Eliana é empurrada contra a lâmina da serra e se corta. O sangue entra na
+caixa e cai em Inverno. O frio aumenta sem fonte aparente. O nariz se forma,
+o silêncio se instala e um dedo se move.
 
-Fundos e quadros:
-- menu_bg
-- boat_map
-- dive_exterior
-- dive_interior
-- lab_map
-- cutscene_11
-- cutscene_15
-- cutscene_16
-- cutscene_18
-- cutscene_19
+Inverno desperta dentro do Ato 1. Ele mata os médicos e os guardas do
+laboratório. Essas mortes são uma sequência roteirizada, não um combate. A
+direção deve sugerir o terror por sombras, silhuetas, portas, sons, cortes de
+luz e reação dos presentes, sem mostrar tudo na tela e sem violência gráfica.
 
-Sprites e efeitos:
-- boat
-- tiago_dive
-- eliana
-- relic
-- silver_box
-- school_fish
-- lantern
+Depois da matança, há uma fuga curta em top-down 3/4, que pode ser jogável.
+O encerramento do Ato 1 acontece ao fim dessa fuga.
 
-Para regenerar os PNGs:
+Cutscenes devem usar `AnimationPlayer` para sincronizar quadros, transições,
+sombras, luzes e sons.
 
-bash tools/generate_assets.sh
 
-Fim do arquivo.
+7. ROTEIRO DAS CUTSCENES DO ATO 1
+============================================================
+
+1.1 — HQ: praia ao amanhecer, os três amigos, caravela e decisão de mergulhar.
+1.5 — HQ: balões laranja, cabos, proa cedendo, caixa caindo e recuperação no
+dia seguinte pela USPA.
+1.6 — HQ: galpão nas docas, plástico prateado, cientistas, soldados, limpeza
+da caixa e sete inscrições.
+1.8 — HQ: serra, corte pequeno, sangue no avental e sangue entrando na caixa.
+1.9 — HQ + sequência roteirizada: sete corpos, Inverno íntegro, nariz se
+formando, sangue, dedo se movendo, despertar e mortes sugeridas por sombra,
+silhueta, porta, som e iluminação. Depois, iniciar a fuga top-down 3/4.
+
+O texto, balões e narração devem ser editáveis no Godot, sem exigir regenerar
+as imagens.
+
+
+8. PERSONAGENS E PROMPTS DE SPRITE
+============================================================
+
+Os prompts de personagens devem pedir:
+- pixel art 2D moderna, frame a frame;
+- vista top-down 3/4 para personagens em terra;
+- sprite sheet com quatro direções: frente, costas e lados;
+- idle, caminhada e interação quando necessário;
+- pivô próximo aos pés;
+- fundo transparente para sprites;
+- contorno, paleta e escala consistentes.
+
+A versão atual da arte permanece como referência visual; esta regra não exige
+regenerar todos os sprites nesta etapa.
+
+Personagens relevantes no Ato 1: Tiago, César, Olavo, Eliana, Delvechio,
+Dr. Sérgio Diaz, Matias, médicos, guardas e Inverno.
+
+Inverno precisa de uma silhueta ou tratamento de luz para a sequência do
+despertar. Não usar arte gráfica de violência.
+
+
+9. PROMPTS DE CENÁRIO E TILESETS
+============================================================
+
+Subaquático — vista lateral:
+Fenda rochosa, casco de caravela, algas, sedimento, visibilidade reduzida,
+feixes da lanterna e paleta azul-petróleo, verde-musgo, ferrugem e prata.
+
+Galpão e fuga — top-down 3/4:
+Estilo de tileset em grade, inspirado na leitura de Zelda: The Minish Cap,
+com chão industrial, plástico prateado, salas de vidro, bancadas, caixa,
+serra, aquecedores, portas, luzes de emergência e sombras longas.
+
+Ruas futuras — top-down 3/4:
+Ruas congeladas, neve, prédios baixos, postes e veículos cobertos, com
+tileset modular em grade.
+
+Prompts não devem pedir à ferramenta que invente texto legível. Textos,
+nomes, balões e inscrições revisáveis entram no Godot.
+
+Camadas obrigatórias dos tilesets:
+- Ground: água, chão, madeira ou gelo;
+- Objects: casco, rochas, caixa, bancadas, portas e props;
+- Collision: paredes, bordas, serra e corrente;
+- Interactions: fotos, entrada, relíquia, inscrições, saída e gatilhos.
+
+
+10. REGRAS TÉCNICAS E DE TRABALHO — GODOT 4
+============================================================
+
+- Uma cena separada por fase.
+- Estrutura modular em `scenes/`, `scripts/`, `assets/`, `audio/`, `docs/` e
+  `tools/`.
+- `Area2D` para gatilhos e interações; a lâmina usa
+  `SawBladeTrigger_Area2D` com `CollisionShape2D`.
+- `AnimationPlayer` nas cutscenes para quadros, transições, sombras, luzes e
+  sons.
+- `Camera2D` nas fases jogáveis; top-down 3/4 com Y-sort em terra e fuga;
+  vista lateral no mergulho; vista de cima na lancha.
+- `TileMap`/tileset em perspectiva 3/4 com camadas de chão, objetos,
+  colisão e interação.
+- Sombras e iluminação 2D; `PointLight2D` e textura de cone na lanterna.
+- Som ambiente e efeitos: água, bolhas, respiração, rangido, cardume, metal,
+  serra, gota, silêncio, luzes e fuga.
+- Código GDScript comentado e explicado em português.
+- Save em `user://`, nunca dentro do repositório.
+- Assets de runtime locais, autorais e documentados; sem hotlink ou material
+  protegido não autorizado.
+- Ato 1 sem combate jogável, sem inimigos com IA e sem barra de vida.
+- Matança de médicos e guardas: somente roteiro, som, sombra, silhueta e luz.
+
+Forma de trabalho:
+- explicar cada script em português;
+- avisar antes de alterar qualquer arquivo;
+- entregar e validar uma fase por vez na Tarefa 2;
+- esperar a confirmação do usuário antes de passar à fase seguinte.
+
+
+11. PIPELINE E FERRAMENTAS
+============================================================
+
+As ferramentas têm papéis diferentes:
+
+- Notion: GDD, Game Bible e organização.
+- Gemini ou gerador equivalente: arte-base e conceitos visuais por prompt.
+- LibreSprite/Aseprite: ajuste de pixels, recorte, pivô, paleta e animação.
+  Não recebe prompt de geração como um gerador de imagem.
+- LDtk/Tiled: montagem de mapas, tilesets, entidades e colisões. Não é
+  gerador de imagens por prompt.
+- Bfxr/SFXR: efeitos sonoros curtos.
+- Audacity: corte, limpeza, normalização e edição de áudio. Não recebe prompt
+  de imagem.
+- Godot 4: integração, cenas, scripts, iluminação, áudio e testes.
+- Git/GitHub Desktop: versionamento e histórico.
+
+Ordem:
+1. fechar a documentação;
+2. gerar arte-base;
+3. ajustar sprites no LibreSprite;
+4. montar mapas no LDtk/Tiled;
+5. produzir e editar SFX;
+6. integrar no Godot;
+7. testar cada fase;
+8. registrar limitações e fazer commit.
+
+
+12. ARQUIVOS E CRITÉRIOS DO ATO 1
+============================================================
+
+Arquivos principais:
+- `project.godot`;
+- `README.md`;
+- `PROMPT_UNICO_OS_SETE_ATO_1.md`;
+- `PROMPT_UNICO_CRIACAO_ATO_1.txt`;
+- `ARQUIVOS_ATO_1_OUTRAS_FERRAMENTAS.txt`;
+- `docs/AT0_LEITURA_E_DECISOES.md`;
+- `docs/ASSET_STATUS.md`;
+- `docs/tarefas.md`;
+- cenas, scripts, assets e áudio locais.
+
+Critérios narrativos:
+- fluxo 1.1 a 1.9 conectado;
+- caixa encontrada, marcada, perdida no primeiro içamento e recuperada na
+  cutscene 1.5;
+- três fotografias, oxigênio, lanterna, corrente, item e inscrições;
+- corte inevitável após o registro;
+- sangue em Inverno, despertar e mortes roteirizadas;
+- fuga curta top-down 3/4 sem combate;
+- fim do Ato 1 depois da fuga.
+
+Critérios técnicos:
+- projeto abre no Godot 4;
+- nenhuma referência de runtime ausente;
+- `Area2D`, `AnimationPlayer`, `Camera2D`, Y-sort, iluminação 2D e áudio
+  presentes quando aplicáveis;
+- smoke test, playthrough manual e limitações relatados separadamente.
+
+Status desta atualização: documentação revisada. O código do Ato 1 ainda deve
+ser ajustado ao novo final depois da aprovação deste bloco.
+
+FIM DO BLOCO DE NOTAS UNIFICADO.

@@ -31,9 +31,10 @@ Fluxo obrigatório:
 -> 1.7 Investigação com Eliana
 -> 1.8 O corte
 -> 1.9 Sangue em Inverno
--> tela final: "Capítulo 2 — O Despertar."
+-> 1.9 Despertar, matança roteirizada e fuga curta
+-> fim do Ato 1
 
-O Ato 2 não deve ser implementado neste bloco. Deixe uma transição clara para que um futuro PROMPT_UNICO_CRIACAO_ATO_2.txt possa ser adicionado sem reescrever o Ato 1.
+O título proposto para o capítulo seguinte é "Capítulo 2 — A Fuga de Inverno". O Ato 2 não deve ser implementado neste bloco. Deixe uma transição clara para que um futuro PROMPT_UNICO_CRIACAO_ATO_2.txt possa ser adicionado sem reescrever o Ato 1.
 
 
 ============================================================
@@ -57,7 +58,7 @@ Os anexos são referências e instruções de produção. Não copie trechos lon
 
 1. Engine: Godot 4.x; linguagem GDScript.
 2. O jogo é 2D puro. Não use nós 3D, câmera 3D ou profundidade falsa em 3D.
-3. O Ato 1 não possui combate nem inimigos. Não criar ataques, barra de vida, perseguição ou IA hostil.
+3. O Ato 1 não possui combate jogável nem inimigos controlados por IA. Não criar ataques, barra de vida, sistema de perseguição ou IA hostil. O despertar de Inverno e a morte dos médicos e guardas são uma sequência roteirizada.
 4. A lancha usa vista de cima.
 5. O mergulho usa vista lateral, com atmosfera inspirada em exploração subaquática.
 6. O laboratório usa top-down 3/4, Y-sort e câmera 2D.
@@ -68,9 +69,12 @@ Os anexos são referências e instruções de produção. Não copie trechos lon
 11. A caixa contém sete corpos. Inverno é o corpo mais íntegro e se distingue pelo nariz que começa a se formar.
 12. Eliana se corta quando é empurrada contra a lâmina da serra elétrica. O gatilho deve ser uma Area2D na lâmina, com nome identificável, como SawBladeTrigger_Area2D.
 13. O frio do laboratório surge sem ar-condicionado ligado. O aparelho havia sido retirado; aquecedores aparecem como ambientação e pontos de calor.
-14. Todo asset de runtime deve existir localmente. Nenhuma URL externa pode ser necessária para jogar.
-15. Código deve ter cabeçalho e comentários em português nos trechos não óbvios.
-16. Não esconda placeholders. Registre o que for provisório em docs/ASSET_STATUS.md.
+14. O despertar e as mortes devem ser sugeridos por sombras, sons, silhuetas, portas e iluminação 2D. Não mostrar violência gráfica nem transformar a cena em combate.
+15. Depois da matança, incluir uma fuga curta em top-down 3/4, com `Camera2D`, Y-sort e iluminação 2D, sem combate.
+16. Toda cutscene deve ter `AnimationPlayer` para temporizar quadros, transições, luzes e sons quando houver movimento.
+17. Todo asset de runtime deve existir localmente. Nenhuma URL externa pode ser necessária para jogar.
+18. Código deve ter cabeçalho e comentários em português nos trechos não óbvios.
+19. Não esconda placeholders. Registre o que for provisório em docs/ASSET_STATUS.md.
 
 
 ============================================================
@@ -105,7 +109,7 @@ A USPA financia o resgate da caravela com balões e cabos. Quando o casco cede n
 
 No galpão, a caixa é lavada e revela sete nomes: Lobo, Tempestade, Inverno, Gentil, Espelho, Acordador e Sétimo. Delvechio autoriza a abertura com serras elétricas. A placa frontal é removida; há sete corpos ressecados sem olhos. A multidão empurra Eliana contra a lâmina. Ela se corta, sangra e se apoia na caixa; o sangue escorre para dentro.
 
-O frio cresce sem explicação. Inverno é o corpo mais íntegro; o nariz começa a se formar. Uma gota cai, o silêncio se instala e um dedo se move. O Ato termina antes do despertar completo.
+O frio cresce sem explicação. Inverno é o corpo mais íntegro; o nariz começa a se formar. O sangue toca o corpo, o silêncio se instala e um dedo se move. Inverno desperta e mata os médicos e guardas do laboratório em uma sequência roteirizada, sugerida por sombras, sons, silhuetas e iluminação. Depois, há uma fuga curta em top-down 3/4. O Ato 1 termina ao fim dessa fuga.
 
 
 ============================================================
@@ -245,7 +249,7 @@ Mostrar metal raspando, grito curto, mão direita cortada, sangue no avental e E
 FASE 1.9 — SANGUE EM INVERNO
 ----------------------------
 
-Tipo: cutscene HQ e encerramento.
+Tipo: cutscene HQ, sequência roteirizada e fuga curta.
 
 Mostrar:
 
@@ -253,9 +257,13 @@ Mostrar:
 2. Inverno mais íntegro que os demais.
 3. Nariz se formando.
 4. Gota de sangue descendo.
-5. Silêncio total quando toca o corpo.
-6. Dedo se movendo.
-7. Tela preta: "Capítulo 2 — O Despertar."
+5. Silêncio total quando o sangue toca o corpo.
+6. Dedo se movendo e despertar de Inverno.
+7. Médicos e guardas sendo mortos apenas por sombras, silhuetas, portas, sons e alterações de luz; não mostrar tudo na tela.
+8. Fuga curta em top-down 3/4, sem combate, com `Camera2D`, Y-sort e iluminação 2D.
+9. Encerramento do Ato 1. Não usar a tela "Capítulo 2 — O Despertar"; o próximo capítulo pode ser nomeado "Capítulo 2 — A Fuga de Inverno".
+
+As cutscenes devem ter `AnimationPlayer` para coordenar quadros, sons, iluminação e transições.
 
 
 ============================================================
@@ -296,6 +304,8 @@ UI:
 - Caixa de mensagem sem timer obrigatório de leitura.
 - Pausa com continuar e voltar ao menu.
 - Redução de tremor/flashes ou movimento reduzido registrada nas configurações.
+- `Camera2D` seguindo o jogador nas fases jogáveis; Y-sort e camadas de iluminação nas fases top-down 3/4.
+- Sombras e iluminação 2D para o mergulho, laboratório, despertar e fuga.
 
 Áudio:
 
@@ -307,6 +317,7 @@ UI:
 - Metal raspando e serra.
 - Gota de sangue e silêncio total depois dela.
 - Ambiente frio do laboratório.
+- Sons da matança sugerida e da fuga, sem descrever visualmente a violência.
 
 
 ============================================================
@@ -351,8 +362,8 @@ Técnica:
 
 Ato 1:
 
-[ ] O fluxo 1.1–1.9 está conectado.
-[ ] Não existe combate ou inimigo.
+[ ] O fluxo 1.1–1.9 está conectado até a fuga final do Ato 1.
+[ ] Não existe combate jogável ou inimigo controlado por IA.
 [ ] A lancha chega à boia e confirma a âncora.
 [ ] O mergulho tem oxigênio e lanterna.
 [ ] A corrente desloca o jogador.
@@ -367,7 +378,10 @@ Ato 1:
 [ ] A serra tem Area2D real.
 [ ] O corte é inevitável depois do registro.
 [ ] Aparecem sete corpos e o nariz de Inverno.
-[ ] O ato termina com a tela do Capítulo 2.
+[ ] Inverno desperta dentro do Ato 1.
+[ ] A matança é sugerida por sombras, sons, silhuetas e luz, sem violência gráfica.
+[ ] A fuga curta top-down 3/4 funciona sem combate.
+[ ] O Ato 1 termina depois da fuga; o título do capítulo seguinte é apenas uma proposta.
 
 Arte e produção:
 

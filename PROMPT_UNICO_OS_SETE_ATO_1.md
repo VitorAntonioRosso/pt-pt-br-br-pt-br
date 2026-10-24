@@ -12,22 +12,24 @@ Use as notas unificadas para estrutura de jogo e o PDF como autoridade factual q
 
 Entregue um projeto Godot 4.x 2D executável e jogável de ponta a ponta:
 
-`1.1 → 1.2 → 1.3 → 1.4 → 1.5 → 1.6 → 1.7 → 1.8 → 1.9 → “Capítulo 2 — O Despertar.”`
+`1.1 → 1.2 → 1.3 → 1.4 → 1.5 → 1.6 → 1.7 → 1.8 → 1.9 (despertar, matança roteirizada e fuga curta) → fim do Ato 1`
 
-Inclua cenas reais, scripts GDScript comentados em português, assets locais, menu, save/continue, pausa, créditos, README, estado de assets e tarefas futuras. Rode o projeto e relate somente o que foi verificado.
+Inclua cenas reais, scripts GDScript comentados em português, assets locais, menu, save/continue, pausa, créditos, README, estado de assets e tarefas futuras. Rode o projeto e relate somente o que foi verificado. O título proposto para o capítulo seguinte é `Capítulo 2 — A Fuga de Inverno`; o Ato 2 não entra neste bloco.
 
 ## Restrições fixas do bloco
 
 1. Godot 4.x e GDScript.
 2. 2D puro: sem nós 3D e sem câmera 3D.
-3. Ato 1 sem combate e sem inimigos. Não criar barras de vida, ataques ou perseguição.
+3. Ato 1 sem combate jogável e sem inimigos controlados por IA. Não criar barras de vida, ataques ou sistema de perseguição. A matança de médicos e guardas é exclusivamente uma sequência roteirizada.
 4. Lancha em vista de cima; mergulho em vista lateral; laboratório em top-down 3/4.
 5. A caixa é encontrada e marcada no mergulho. No primeiro içamento ela cai de volta; a recuperação acontece na cutscene 1.5.
 6. O susto é o rangido amplificado e o cardume; não usar jumpscare com monstro.
 7. A caixa mostra sete corpos; Inverno é o mais íntegro, com o nariz se formando antes do dedo se mover.
 8. Eliana se corta na lâmina da serra durante a abertura. O gatilho precisa ser uma `Area2D` na lâmina.
 9. O frio do laboratório surge sem ar-condicionado ligado; aquecedores são pontos de ambientação.
-10. Todo asset carregado em runtime deve existir localmente e ter origem documentada. Não use hotlink, logo ou material protegido.
+10. Depois do sangue, Inverno desperta e mata médicos e guardas. A cena deve sugerir as mortes por sombras, sons, silhuetas e iluminação, sem mostrar tudo explicitamente.
+11. Após a matança, criar uma fuga curta em top-down 3/4, sem combate. Use `Camera2D`, Y-sort e iluminação 2D.
+12. Todo asset carregado em runtime deve existir localmente e ter origem documentada. Não use hotlink, logo ou material protegido.
 
 ## Fases e critérios
 
@@ -65,7 +67,9 @@ A multidão empurra Eliana contra a lâmina. O corte é pequeno e sangra muito; 
 
 ### 1.9 — Sangue em Inverno HQ
 
-O frio cresce sem fonte. Mostre sete corpos, destaque o corpo mais íntegro, o nariz se formando, a gota de sangue, silêncio e um dedo se movendo. Termine com `Capítulo 2 — O Despertar.`
+O frio cresce sem fonte. Mostre sete corpos, destaque o corpo mais íntegro, o nariz se formando e o sangue entrando na caixa. Depois do silêncio e do dedo se movendo, Inverno desperta. A morte dos médicos e guardas deve ser roteirizada, sugerida por sombras, portas, sons e silhuetas, sem combate e sem violência gráfica. Em seguida, conduza uma fuga curta top-down 3/4. O Ato 1 termina ao fim dessa fuga, sem tela `Capítulo 2 — O Despertar`.
+
+As cutscenes devem usar `AnimationPlayer` para temporizar quadros, transições, luzes e sons. A fuga deve usar `Camera2D`, Y-sort e iluminação 2D.
 
 ## Qualidade e validação
 
@@ -73,7 +77,8 @@ O frio cresce sem fonte. Mostre sete corpos, destaque o corpo mais íntegro, o n
 - Faça o fluxo inteiro sem recurso ausente.
 - Verifique que menu, novo jogo, continuar, pausa e save funcionam.
 - Verifique oxigênio, lanterna/visibilidade, corrente, três fotos, entrada, item, inscrição e `Area2D` da serra.
-- Confirme que não há inimigos nem combate.
+- Confirme que não há combate jogável nem inimigos controlados por IA; a matança do laboratório é uma sequência roteirizada.
+- Verifique o despertar, a sugestão das mortes por som/sombra/silhueta e a fuga curta top-down 3/4.
 - Registre limitações de arte, áudio e polimento em `docs/ASSET_STATUS.md`; nunca chame placeholder de asset final.
 
 ## Regra para blocos seguintes
